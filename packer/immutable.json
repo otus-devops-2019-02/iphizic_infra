@@ -4,7 +4,7 @@
             "type": "googlecompute",
             "project_id": "{{user `space`}}",
             "image_name": "reddit-immutable-{{timestamp}}",
-            "image_family": "reddit-base-immutable",
+            "image_family": "reddit-full",
             "source_image_family": "{{user `base_image`}}",
             "zone": "europe-west4-b",
             "ssh_username": "iphizic",
