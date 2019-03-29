@@ -5,3 +5,8 @@ gcloud compute instances create reddit-immutable \
            --machine-type=g1-small \
            --tags puma-server \
            --restart-on-failure
+gcloud compute firewall-rules create puma-input \
+      --action allow \
+      --target-tags puma-server \
+      --source-ranges 0.0.0.0/0 \
+      --rules tcp:9292
