@@ -1,0 +1,6 @@
+{
+    "space": "nefalem-666333",
+    "base_image": "ubuntu-1604-lts",
+    "resource name": "f1-micro"
+
+}
