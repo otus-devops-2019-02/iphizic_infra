@@ -1,0 +1,15 @@
+[Unit]
+Description=Puma
+After=mongod.service
+After=network.target
+Requires=mongod.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/puma --pid /home/puma.pid
+PIDFile=/home/puma.pid
+WorkingDirectory=/home/iphizic/reddit
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
