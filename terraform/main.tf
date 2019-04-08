@@ -13,14 +13,15 @@ provider "google" {
 }
 
 resource "google_compute_instance" "app" {
-  name         = "reddit-app"
+  count        = 2
+  name         = "reddit-app-${count.index}"
   machine_type = "g1-small"
   zone         = "${var.app_zone}"
   tags         = ["reddit-app"]
 
   metadata {
     # путь до публичного ключа
-    ssh-keys = "iphizic:${file(var.public_key_path)}"
+    ssh-keys = "iphizic:${file(var.public_key_path)}\nappuser:${file(var.public_key_path)}\nappuser2:${file(var.public_key_path)}"
   }
 
   # определение загрузочного диска

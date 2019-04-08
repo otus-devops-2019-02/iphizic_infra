@@ -6,7 +6,7 @@ variable region {
   description = "Region"
 
   # Значение по умолчанию
-  default = "europe-west4-b"
+  default = "europe-west4"
 }
 
 variable public_key_path {
