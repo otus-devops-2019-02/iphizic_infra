@@ -1,0 +1,22 @@
+{
+    "builders": [
+        {
+            "type": "googlecompute",
+            "project_id": "{{user `space`}}",
+            "image_name": "reddit-db-{{timestamp}}",
+            "image_family": "reddit-db-base",
+            "source_image_family": "{{user `base_image`}}",
+            "zone": "europe-west4-b",
+            "ssh_username": "appuser_web",
+            "machine_type": "{{user `resource name`}}"
+        }
+    ],
+    "provisioners": [
+
+        {
+            "type": "shell",
+            "script": "scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        }
+    ]
+}
