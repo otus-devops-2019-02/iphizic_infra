@@ -25,7 +25,6 @@ resource "google_compute_instance" "db" {
     # использовать ephemeral IP для доступа из Интернет
     access_config = {}
   }
-
 }
 
 resource "google_compute_firewall" "firewall_mongj" {

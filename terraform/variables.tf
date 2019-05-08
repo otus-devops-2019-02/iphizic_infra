@@ -20,7 +20,7 @@ variable app_disk_image {
 
 variable db_disk_image {
   description = "Disk image for reddit db"
-  default = "reddit-db-base"
+  default     = "reddit-db-base"
 }
 
 variable private_key_path {
@@ -33,4 +33,11 @@ variable app_zone {
 
   # Значение по умолчанию
   default = "*"
+}
+
+variable source_ranges{
+  description = "Zone for ssh login"
+
+  # Значение по умолчанию
+  default = "0.0.0.0/0"
 }
