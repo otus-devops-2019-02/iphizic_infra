@@ -35,7 +35,7 @@ variable app_zone {
   default = "*"
 }
 
-variable source_ranges{
+variable source_ranges {
   description = "Zone for ssh login"
 
   # Значение по умолчанию
