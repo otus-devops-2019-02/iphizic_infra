@@ -4,10 +4,10 @@
             "type": "googlecompute",
             "project_id": "{{user `space`}}",
             "image_name": "reddit-base-{{timestamp}}",
-            "image_family": "reddit-base",
+            "image_family": "reddit-app-base",
             "source_image_family": "{{user `base_image`}}",
             "zone": "europe-west4-b",
-            "ssh_username": "iphizic",
+            "ssh_username": "appuser_web",
             "machine_type": "{{user `resource name`}}"
         }
     ],
@@ -16,11 +16,7 @@
             "type": "shell",
             "script": "scripts/install_ruby.sh",
             "execute_command": "sudo {{.Path}}"
-        },
-        {
-            "type": "shell",
-            "script": "scripts/install_mongodb.sh",
-            "execute_command": "sudo {{.Path}}"
         }
+
     ]
 }
