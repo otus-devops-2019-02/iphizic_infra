@@ -14,10 +14,15 @@ def host_list(group):
 
     for module in terraform_list['modules']:
         if group in module['path']:
-            ip = module['outputs']['external_ip']['value'][0]
-            return ip
+            config = {"ansible_host": module['outputs']['external_ip']['value'][0] }
 
-    return main_host_list
+        if "db" in module['path']:
+            db_ip = module['resources']['google_compute_instance.db']['primary']['attributes']['network_interface.0.network_ip']
+
+    if group == "app":
+      config.update({ "db_host": db_ip})
+
+    return config
 
 
 def parser_init():
@@ -36,24 +41,35 @@ if __name__ == "__main__":
     argument = parser_init()
 
     main_host_list = {
+         "all": {
+            "hosts": [
+                "appserver",
+                "dbserver"
+            ],
+            "children": [
+                "app",
+                "db"
+            ]
+        },
         "app": {
             "hosts": [
                 "appserver"
+            ],
+            "children": [
             ]
         },
         "db": {
             "hosts": [
                 "dbserver"
-                ]
-        },
-        # "_meta": {
-        #     "hostvars": {}
-        # }
+                ],
+            "children": [
+            ]
+        }
     }
 
     if argument.list:
-        print(main_host_list)
+        print(json.dumps(main_host_list))
 
     if argument.host is not None:
-        host_vars = {"ansible_host": host_list(argument.host.replace('server', ''))}
-        print(host_vars)
+        host_vars = host_list(argument.host.replace('server', ''))
+        print(json.dumps(host_vars))
