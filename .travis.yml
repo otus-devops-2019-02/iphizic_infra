@@ -3,7 +3,7 @@ sudo: required
 language: bash
 before_install:
 - curl https://gist.githubusercontent.com/iphizic/9f0efde0d3e885931f1cb8bf5d681ac3/raw/tets.sh
-- curl https://gist.githubusercontent.com/iphizic/9f0efde0d3e885931f1cb8bf5d681ac3/raw/tets.sh |
+- curl https://gist.githubusercontent.com/iphizic/0323c2cd417e101e981df03e2bd6a3d9/raw/run_my_tets.sh |
   bash
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2019-02/run.sh |
   bash
