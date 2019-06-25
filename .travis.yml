@@ -2,6 +2,8 @@ dist: trusty
 sudo: required
 language: bash
 before_install:
+- openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in test.vars.enc -out super_secret.txt -d
+- cat super_secret.txt | grep app_zone
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2019-02/run.sh |
   bash
 notifications:
