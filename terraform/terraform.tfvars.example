@@ -1,5 +1,5 @@
 project = "progect-888888"
-public_key_path = "~/.ssh/id_rsa.pub"
+public_key_path = "~/.ssh/appuser.pub"
 app_disk_image = "reddit-app-base"
-private_key_path = "~/.ssh/id_rsa"
+private_key_path = "~/.ssh/appuser"
 app_zone = "europe-west4-b"
