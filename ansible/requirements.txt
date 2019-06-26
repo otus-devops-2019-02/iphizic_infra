@@ -4,4 +4,6 @@ netaddr
 pyOpenSSL
 jmespath
 argparse
-json
+molecule>=2.6
+testinfra>=1.10
+python-vagrant>=0.5.15
