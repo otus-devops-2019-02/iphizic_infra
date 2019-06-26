@@ -1,0 +1,11 @@
+---
+- name: Configure and deploy app
+  hosts: app
+  roles:
+    - app
+
+- name: Configure http proxy
+  become: yes
+  hosts: app
+  roles:
+    - jdauphant.nginx
