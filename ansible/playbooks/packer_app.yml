@@ -2,12 +2,5 @@
 - name: Packer install ruby
   hosts: all
   become: yes
-  tasks:
-    - name: Install ruby packeges
-      package:
-        name: "{{ item }}"
-        state: present
-      with_items:
-        - ruby-full
-        - ruby-bundler
-        - build-essential
+  roles:
+    - app

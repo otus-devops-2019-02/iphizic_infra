@@ -16,3 +16,7 @@ vault.key
 .molecule
 .cache
 .pytest_cache
+Pipfile*
+env
+db
+iphizic.mongodb
